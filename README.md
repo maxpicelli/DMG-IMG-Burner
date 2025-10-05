@@ -119,12 +119,13 @@ Isso instalará as ferramentas de linha de comando incluindo o Python 3.
 Execute este comando no Terminal para instalar automaticamente:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/maxpicelli/DMG-IMG-Burner/main/make-app.sh | bash && open "DMG Burner.app"
+curl -fsSL https://raw.githubusercontent.com/maxpicelli/DMG-IMG-Burner/main/install.sh | bash
 ```
 
 Este comando irá:
-- ✅ Baixar o script de instalação
+- ✅ Baixar o repositório completo do GitHub
 - ✅ Criar o aplicativo `DMG Burner.app`
+- ✅ Mover para o Desktop
 - ✅ Abrir o aplicativo automaticamente
 
 ### Método 2: Clone Manual do Repositório
