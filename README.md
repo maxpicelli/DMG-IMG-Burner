@@ -49,24 +49,55 @@ Se você vir algo como `Python 3.x.x`, está pronto para usar!
 
 #### Se o Python 3 não estiver instalado:
 
-##### Opção 1: Instalação via Homebrew (Recomendado)
+##### Opção 1: Anaconda Python (Recomendado)
 
-1. **Instalar o Homebrew** (se ainda não tiver):
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+1. **Baixar o Anaconda** - Escolha conforme seu Mac:
 
-2. **Instalar Python 3**:
-```bash
-brew install python3
-```
+   **Para Mac com Apple Silicon (M1/M2/M3/M4):**
+   ```bash
+   curl -O https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-arm64.pkg
+   open Anaconda3-2024.10-1-MacOSX-arm64.pkg
+   ```
+   Ou baixe direto: [Anaconda ARM64](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-arm64.pkg)
 
-3. **Verificar a instalação**:
-```bash
-python3 --version
-```
+   **Para Mac com Intel:**
+   ```bash
+   curl -O https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-x86_64.pkg
+   open Anaconda3-2024.10-1-MacOSX-x86_64.pkg
+   ```
+   Ou baixe direto: [Anaconda Intel](https://repo.anaconda.com/archive/Anaconda3-2024.10-1-MacOSX-x86_64.pkg)
 
-##### Opção 2: Download do Site Oficial
+   **Não sabe qual Mac tem?** Execute no Terminal:
+   ```bash
+   uname -m
+   # arm64 = Apple Silicon (M1/M2/M3/M4)
+   # x86_64 = Intel
+   ```
+
+2. **Instalar o Anaconda**:
+   - Execute o instalador baixado (.pkg)
+   - Siga as instruções do instalador
+   - Aceite os termos e escolha o local de instalação
+
+3. **Configurar o Terminal** (após instalação):
+   ```bash
+   source ~/anaconda3/bin/activate
+   conda init zsh
+   ```
+
+4. **Verificar a instalação**:
+   ```bash
+   python3 --version
+   ```
+
+5. **Vantagens do Anaconda**:
+   - ✅ Inclui Python 3 + centenas de pacotes científicos
+   - ✅ Gerenciador de ambientes virtuais (conda)
+   - ✅ Jupyter Notebook incluído
+   - ✅ Fácil atualização: `conda update python`
+   - ✅ Otimizado para Apple Silicon (ARM64)
+
+##### Opção 2: Download do Site Oficial Python
 
 1. Acesse: [https://www.python.org/downloads/](https://www.python.org/downloads/)
 2. Baixe o instalador mais recente do Python 3 para macOS
@@ -83,12 +114,25 @@ Isso instalará as ferramentas de linha de comando incluindo o Python 3.
 
 ## 📥 Instalação
 
-### Download do Aplicativo
+### Método 1: Instalação Rápida (Uma Linha)
+
+Execute este comando no Terminal para instalar automaticamente:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/maxpicelli/DMG-IMG-Burner/main/make-app.sh | bash && open "DMG Burner.app"
+```
+
+Este comando irá:
+- ✅ Baixar o script de instalação
+- ✅ Criar o aplicativo `DMG Burner.app`
+- ✅ Abrir o aplicativo automaticamente
+
+### Método 2: Clone Manual do Repositório
 
 1. **Clone este repositório**:
 ```bash
-git clone https://github.com/SEU-USUARIO/dmg-burner.git
-cd dmg-burner
+git clone https://github.com/maxpicelli/DMG-IMG-Burner.git
+cd DMG-IMG-Burner
 ```
 
 2. **Construir o aplicativo**:
@@ -100,6 +144,17 @@ chmod +x make-app.sh
 3. **Mover para a pasta de Aplicativos** (opcional):
 ```bash
 mv "DMG Burner.app" /Applications/
+```
+
+### Método 3: Download Direto
+
+Baixe o ZIP do repositório e construa:
+```bash
+curl -L https://github.com/maxpicelli/DMG-IMG-Burner/archive/refs/heads/main.zip -o DMG-IMG-Burner.zip
+unzip DMG-IMG-Burner.zip
+cd DMG-IMG-Burner-main
+chmod +x make-app.sh
+./make-app.sh
 ```
 
 ### Primeira Execução
