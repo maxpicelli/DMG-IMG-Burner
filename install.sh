@@ -110,10 +110,7 @@ echo ""
 echo -e "${YELLOW}Para mover para Applications:${NC}"
 echo "  mv ~/Desktop/DMG\\ Burner.app /Applications/"
 echo ""
-echo -e "${GREEN}Abrindo o aplicativo...${NC}"
-
-# Open the app
-open "$INSTALL_DIR/DMG Burner.app"
+echo -e "${GREEN}✓ Aplicativo criado e pronto para uso!${NC}"
 
 # Cleanup
 cd ~
