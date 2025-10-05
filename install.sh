@@ -112,10 +112,13 @@ echo "  mv ~/Desktop/DMG\\ Burner.app /Applications/"
 echo ""
 echo -e "${GREEN}✓ Aplicativo criado e pronto para uso!${NC}"
 
-# Cleanup
-cd ~
-rm -rf "$TEMP_DIR"
-
+# Show location and keep files
+echo ""
+echo -e "${BLUE}📁 Pasta de trabalho mantida em:${NC} ${TEMP_DIR}"
+echo -e "${BLUE}📁 Repositório clonado em:${NC} ${TEMP_DIR}/DMG-IMG-Burner"
+echo ""
+echo -e "${YELLOW}Para limpar manualmente depois:${NC}"
+echo "  rm -rf ${TEMP_DIR}"
 echo ""
 echo -e "${GREEN}✓ Instalação finalizada!${NC}"
 
