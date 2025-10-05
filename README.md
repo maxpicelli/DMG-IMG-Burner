@@ -9,9 +9,8 @@ Um aplicativo macOS simples e poderoso para gravar imagens IMG/DMG em pendrives 
 
 ## 📋 Índice
 
-- [Características](#-características)
+- [Instalação Rápida](#-instalação-rápida)
 - [Requisitos do Sistema](#-requisitos-do-sistema)
-- [Instalação](#-instalação)
 - [Como Usar](#-como-usar)
 - [Funcionalidades](#-funcionalidades)
 - [Construir o App](#-construir-o-app)
@@ -29,6 +28,62 @@ Um aplicativo macOS simples e poderoso para gravar imagens IMG/DMG em pendrives 
 - 🛡️ Confirmação de segurança antes de operações destrutivas
 - 💻 Interface amigável via Terminal
 - 🎨 Ícone personalizado e integração nativa com macOS
+
+## 🚀 Instalação Rápida
+
+### Método 1: Instalação Rápida (Uma Linha)
+
+Execute este comando no Terminal para instalar automaticamente:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/maxpicelli/DMG-IMG-Burner/main/install.sh | bash
+```
+
+Este comando irá:
+- ✅ Baixar o repositório completo do GitHub
+- ✅ Criar o aplicativo `DMG Burner.app`
+- ✅ Mover para o Desktop
+- ✅ Abrir o aplicativo automaticamente
+
+### Método 2: Clone Manual do Repositório
+
+1. **Clone este repositório**:
+```bash
+git clone https://github.com/maxpicelli/DMG-IMG-Burner.git
+cd DMG-IMG-Burner
+```
+
+2. **Construir o aplicativo**:
+```bash
+chmod +x make-app.sh
+./make-app.sh
+```
+
+3. **Mover para a pasta de Aplicativos** (opcional):
+```bash
+mv "DMG Burner.app" /Applications/
+```
+
+### Método 3: Download Direto
+
+Baixe o ZIP do repositório e construa:
+```bash
+curl -L https://github.com/maxpicelli/DMG-IMG-Burner/archive/refs/heads/main.zip -o DMG-IMG-Burner.zip
+unzip DMG-IMG-Burner.zip
+cd DMG-IMG-Burner-main
+chmod +x make-app.sh
+./make-app.sh
+```
+
+### Primeira Execução
+
+Na primeira vez que executar o app, o macOS pode bloquear por questões de segurança (Gatekeeper):
+
+1. **Clique com botão direito** no `DMG Burner.app`
+2. Selecione **"Abrir"**
+3. Clique em **"Abrir"** na janela de confirmação
+
+Após a primeira execução, você pode abrir normalmente com duplo-clique.
 
 ## 💻 Requisitos do Sistema
 
@@ -112,62 +167,6 @@ xcode-select --install
 ```
 
 Isso instalará as ferramentas de linha de comando incluindo o Python 3.
-
-## 📥 Instalação
-
-### Método 1: Instalação Rápida (Uma Linha)
-
-Execute este comando no Terminal para instalar automaticamente:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/maxpicelli/DMG-IMG-Burner/main/install.sh | bash
-```
-
-Este comando irá:
-- ✅ Baixar o repositório completo do GitHub
-- ✅ Criar o aplicativo `DMG Burner.app`
-- ✅ Mover para o Desktop
-- ✅ Abrir o aplicativo automaticamente
-
-### Método 2: Clone Manual do Repositório
-
-1. **Clone este repositório**:
-```bash
-git clone https://github.com/maxpicelli/DMG-IMG-Burner.git
-cd DMG-IMG-Burner
-```
-
-2. **Construir o aplicativo**:
-```bash
-chmod +x make-app.sh
-./make-app.sh
-```
-
-3. **Mover para a pasta de Aplicativos** (opcional):
-```bash
-mv "DMG Burner.app" /Applications/
-```
-
-### Método 3: Download Direto
-
-Baixe o ZIP do repositório e construa:
-```bash
-curl -L https://github.com/maxpicelli/DMG-IMG-Burner/archive/refs/heads/main.zip -o DMG-IMG-Burner.zip
-unzip DMG-IMG-Burner.zip
-cd DMG-IMG-Burner-main
-chmod +x make-app.sh
-./make-app.sh
-```
-
-### Primeira Execução
-
-Na primeira vez que executar o app, o macOS pode bloquear por questões de segurança (Gatekeeper):
-
-1. **Clique com botão direito** no `DMG Burner.app`
-2. Selecione **"Abrir"**
-3. Clique em **"Abrir"** na janela de confirmação
-
-Após a primeira execução, você pode abrir normalmente com duplo-clique.
 
 ## 🚀 Como Usar
 
