@@ -36,14 +36,14 @@ Um aplicativo macOS simples e poderoso para gravar imagens IMG/DMG em pendrives 
 Execute este comando no Terminal para instalar automaticamente:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/maxpicelli/DMG-IMG-Burner/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/maxpicelli/DMG-IMG-Burner/main/setup.sh | bash
 ```
 
 Este comando irá:
 - ✅ Baixar o repositório completo do GitHub
 - ✅ Criar o aplicativo `DMG Burner.app`
-- ✅ Mover para o Desktop
-- ✅ Abrir o aplicativo automaticamente
+- ✅ Abrir a pasta de instalação automaticamente
+- ✅ Mostrar onde está tudo
 
 ### Método 2: Clone Manual do Repositório
 
