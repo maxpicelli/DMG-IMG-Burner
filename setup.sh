@@ -100,10 +100,10 @@ echo ""
 
 # Ask if user wants to open the app
 echo -e "${YELLOW}Deseja abrir o aplicativo agora?${NC}"
-read -p "Digite 's' para sim ou 'n' para não (s/N): " -n 1 -r
-echo ""
+echo -e "${BLUE}Digite 's' para sim ou 'n' para não (s/N):${NC}"
+read -r response
 
-if [[ $REPLY =~ ^[Ss]$ ]]; then
+if [[ "$response" =~ ^[Ss]$ ]] || [[ -z "$response" ]]; then
     echo -e "${GREEN}Abrindo aplicativo...${NC}"
     open "${INSTALL_DIR}/DMG Burner.app"
     echo -e "${YELLOW}Se aparecer aviso de segurança:${NC}"
