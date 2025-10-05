@@ -86,9 +86,8 @@ fi
 
 echo -e "${GREEN}✓ Aplicativo criado com sucesso!${NC}"
 
-echo -e "${YELLOW}[4/4]${NC} Abrindo pasta e aplicativo..."
+echo -e "${YELLOW}[4/4]${NC} Abrindo pasta de instalação..."
 open "$INSTALL_DIR"
-open "${INSTALL_DIR}/DMG Burner.app"
 
 echo ""
 echo -e "${GREEN}╔════════════════════════════════════════════════════════════════╗${NC}"
@@ -98,11 +97,25 @@ echo ""
 echo -e "${BLUE}📁 Pasta de instalação:${NC} ${INSTALL_DIR}"
 echo -e "${BLUE}📱 Aplicativo criado:${NC} ${INSTALL_DIR}/DMG Burner.app"
 echo ""
-echo -e "${YELLOW}O aplicativo foi aberto automaticamente!${NC}"
-echo -e "${YELLOW}Se aparecer aviso de segurança:${NC}"
-echo "  1. Clique com botão direito no app"
-echo "  2. Selecione 'Abrir'"
-echo "  3. Confirme 'Abrir' novamente"
+
+# Ask if user wants to open the app
+echo -e "${YELLOW}Deseja abrir o aplicativo agora?${NC}"
+read -p "Digite 's' para sim ou 'n' para não (s/N): " -n 1 -r
+echo ""
+
+if [[ $REPLY =~ ^[Ss]$ ]]; then
+    echo -e "${GREEN}Abrindo aplicativo...${NC}"
+    open "${INSTALL_DIR}/DMG Burner.app"
+    echo -e "${YELLOW}Se aparecer aviso de segurança:${NC}"
+    echo "  1. Clique com botão direito no app"
+    echo "  2. Selecione 'Abrir'"
+    echo "  3. Confirme 'Abrir' novamente"
+else
+    echo -e "${BLUE}Para usar o aplicativo:${NC}"
+    echo "  1. Vá para a pasta que foi aberta"
+    echo "  2. Duplo-clique em 'DMG Burner.app'"
+fi
+
 echo ""
 echo -e "${YELLOW}Para mover para Applications:${NC}"
 echo "  mv '${INSTALL_DIR}/DMG Burner.app' /Applications/"
