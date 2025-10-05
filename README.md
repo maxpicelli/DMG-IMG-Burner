@@ -1,7 +1,8 @@
-# DMG Burner - Gravador de Imagens IMG/DMG para USB
+# 🔥 DMG Burner - Gravador de Imagens IMG/DMG para USB
 
 <p align="center">
-  <img src="dmg-burner-icon.icns" alt="DMG Burner Icon" width="128" height="128">
+  <strong>💾 IMG/DMG to USB Burner for macOS</strong><br>
+  <em>Gravador de imagens IMG/DMG em pendrives USB via Terminal</em>
 </p>
 
 Um aplicativo macOS simples e poderoso para gravar imagens IMG/DMG em pendrives USB, com interface via Terminal.
