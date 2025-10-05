@@ -53,8 +53,34 @@ cd DMG-IMG-Burner
 echo -e "${YELLOW}[2/4]${NC} Preparando instalação..."
 chmod +x make-app.sh
 
+# Verificar se todos os arquivos necessários estão presentes
+echo "Verificando arquivos necessários..."
+if [ ! -f "DMG-terminal.py" ]; then
+    echo -e "${RED}❌ Erro: DMG-terminal.py não encontrado!${NC}"
+    exit 1
+fi
+if [ ! -f "dmg-burner-icon.icns" ]; then
+    echo -e "${RED}❌ Erro: dmg-burner-icon.icns não encontrado!${NC}"
+    exit 1
+fi
+if [ ! -f "make-app.sh" ]; then
+    echo -e "${RED}❌ Erro: make-app.sh não encontrado!${NC}"
+    exit 1
+fi
+echo -e "${GREEN}✓ Todos os arquivos necessários encontrados${NC}"
+
 echo -e "${YELLOW}[3/4]${NC} Criando aplicativo..."
 ./make-app.sh
+
+# Verificar se o app foi criado
+if [ ! -d "DMG Burner.app" ]; then
+    echo -e "${RED}❌ Erro: Aplicativo não foi criado!${NC}"
+    echo "Verificando arquivos necessários..."
+    ls -la
+    exit 1
+fi
+
+echo -e "${GREEN}✓ Aplicativo criado com sucesso!${NC}"
 
 echo -e "${YELLOW}[4/4]${NC} Movendo para o Desktop..."
 INSTALL_DIR="$HOME/Desktop"
@@ -62,6 +88,12 @@ if [ -d "$INSTALL_DIR/DMG Burner.app" ]; then
     rm -rf "$INSTALL_DIR/DMG Burner.app"
 fi
 mv "DMG Burner.app" "$INSTALL_DIR/"
+
+# Verificar se o app foi movido
+if [ ! -d "$INSTALL_DIR/DMG Burner.app" ]; then
+    echo -e "${RED}❌ Erro: Falha ao mover aplicativo para o Desktop!${NC}"
+    exit 1
+fi
 
 echo ""
 echo -e "${GREEN}╔════════════════════════════════════════════════════════════════╗${NC}"
