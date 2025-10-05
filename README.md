@@ -190,32 +190,153 @@ Opções:
 0. Sair
 ```
 
-### Passo a Passo para Gravar um Pendrive
+### 📋 Detalhamento das Opções do Menu
 
-#### 1️⃣ Selecionar a Imagem
+#### 🔍 **Opção 1: Selecionar Imagem IMG/DMG**
 
-- Escolha a opção **1** no menu
-- Você pode:
-  - **Arrastar e soltar** o arquivo no Terminal
-  - **Digitar o caminho** completo
-  - **Procurar** em Downloads, Desktop ou pasta atual
+Quando você escolhe esta opção, aparecerá um submenu:
 
-#### 2️⃣ Verificar Dispositivos USB
+```
+Opções:
+1. Drag & Drop - Arraste o arquivo aqui
+2. Digitar caminho completo
+3. Procurar na pasta atual
+4. Procurar na pasta Downloads
+5. Procurar na pasta Desktop
+0. Voltar ao menu principal
+```
 
-- Escolha a opção **2** para listar dispositivos detectados
-- Anote o identificador do seu pendrive (ex: `/dev/disk3`)
+**Métodos de seleção:**
+- **Drag & Drop**: Arraste o arquivo IMG/DMG diretamente no Terminal
+- **Caminho manual**: Digite o caminho completo do arquivo
+- **Busca automática**: O app procura arquivos .img e .dmg nas pastas
 
-#### 3️⃣ Gravar a Imagem
+#### 🔌 **Opção 2: Listar Dispositivos USB**
 
-- Escolha a opção **3**
-- Selecione o dispositivo USB da lista
-- **⚠️ ATENÇÃO**: Confirme que selecionou o dispositivo correto!
-- Digite sua senha de administrador
-- Aguarde a conclusão da gravação
+Mostra todos os dispositivos USB conectados com informações detalhadas:
 
-#### 4️⃣ Ejetar com Segurança
+```
+✅ Encontrados 2 dispositivo(s) USB:
 
-Após a gravação, ejete o pendrive pelo Finder antes de removê-lo fisicamente.
+1. /dev/disk3 - SanDisk Ultra USB 3.0
+   Tamanho: 32.0 GB
+   Status: Montado em /Volumes/SANDISK
+
+2. /dev/disk4 - Kingston DataTraveler
+   Tamanho: 16.0 GB
+   Status: Não montado
+
+⚠️  ATENÇÃO: Gravar uma imagem irá APAGAR TODOS os dados do dispositivo!
+```
+
+#### 🔥 **Opção 3: Gravar Imagem no Pendrive**
+
+**Processo completo de gravação:**
+
+1. **Seleção do dispositivo**: Escolha da lista de USB disponíveis
+2. **Confirmação de segurança**: Aviso sobre apagar dados
+3. **Autenticação**: Senha de administrador necessária
+4. **Gravação**: Processo com barra de progresso em tempo real
+
+**Exemplo de confirmação:**
+```
+⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+🚨 ATENÇÃO: OPERAÇÃO DESTRUTIVA! 🚨
+⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️
+
+Esta operação irá APAGAR COMPLETAMENTE todo o conteúdo de:
+📱 Dispositivo: /dev/disk3
+🏷️  Nome: SanDisk Ultra USB 3.0
+💾 Tamanho: 32.0 GB
+
+📁 Com a imagem: macOS-Installer.img
+📏 Tamanho: 8.5 GB
+
+❌ TODOS OS DADOS DO DISPOSITIVO SERÃO PERDIDOS!
+✅ Certifique-se de ter backup de dados importantes!
+
+⚠️  Deseja continuar? (S/n - Enter = Sim):
+```
+
+**Barra de progresso durante a gravação:**
+```
+[████████████████████████████████████████] 85.2% | 7.2/8.5 GB | 15.3 MB/s | ETA: 1.2min
+```
+
+#### 🔄 **Opção 4: Converter DMG para IMG**
+
+**Métodos de conversão disponíveis:**
+
+```
+🔧 Opções de conversão:
+1. Conversão RAW (Balena Etcher compatível) [UDTO → .cdr → .img]
+2. Formato Read/Write (UDRW) [gera .img RW]
+3. Máxima compatibilidade (2 passos: UDTO→UDRW)
+0. Voltar ao menu principal
+```
+
+**Suporte a arquivos:**
+- ✅ Arquivos `.dmg` diretos
+- ✅ Instaladores `.app` do macOS (localiza o DMG interno)
+- ✅ Busca automática em `Contents/SharedSupport/`
+
+#### ❓ **Opção 5: Ajuda**
+
+Mostra informações detalhadas sobre:
+- Como usar cada funcionalidade
+- Requisitos do sistema
+- Dicas de segurança
+- Solução de problemas comuns
+
+### 📝 Passo a Passo Completo para Gravar um Pendrive
+
+#### 1️⃣ **Preparação**
+1. Conecte o pendrive USB
+2. Faça backup de dados importantes do pendrive
+3. Tenha a imagem IMG/DMG pronta
+
+#### 2️⃣ **Selecionar a Imagem**
+1. Execute o DMG Burner.app
+2. Escolha opção **1** no menu
+3. Selecione o método de escolha da imagem:
+   - **Drag & Drop**: Arraste o arquivo no Terminal
+   - **Caminho**: Digite o caminho completo
+   - **Busca**: Deixe o app encontrar automaticamente
+
+#### 3️⃣ **Verificar Dispositivos**
+1. Escolha opção **2** no menu
+2. Anote o identificador do seu pendrive (ex: `/dev/disk3`)
+3. Confirme que é o dispositivo correto
+
+#### 4️⃣ **Gravar a Imagem**
+1. Escolha opção **3** no menu
+2. Selecione o dispositivo da lista
+3. **LEIA ATENTAMENTE** o aviso de segurança
+4. Digite **'s'** para confirmar
+5. Digite sua senha de administrador
+6. Aguarde a conclusão (pode levar vários minutos)
+
+#### 5️⃣ **Finalização**
+1. Aguarde a mensagem "GRAVAÇÃO CONCLUÍDA COM SUCESSO!"
+2. Ejete o pendrive pelo Finder
+3. Remova o pendrive fisicamente
+
+### 🎯 Dicas de Uso
+
+#### **Para Criar Pendrive Bootável do macOS:**
+1. Baixe o instalador do macOS da App Store
+2. Use a opção **4** para converter o DMG interno
+3. Grave o IMG resultante em pendrive de 16GB+ (USB 3.0)
+
+#### **Para Criar Pendrive Linux:**
+1. Baixe a imagem ISO/IMG da distribuição
+2. Use a opção **1** para selecionar a imagem
+3. Grave em pendrive de 4GB+
+
+#### **Para Backup de Sistema:**
+1. Crie imagem do sistema com Disk Utility
+2. Converta para IMG se necessário (opção **4**)
+3. Grave em pendrive de emergência
 
 ## 🛠 Funcionalidades
 
