@@ -42,13 +42,18 @@ if ! command -v git &> /dev/null; then
     exit 1
 fi
 
-# Temporary directory
-TEMP_DIR=$(mktemp -d)
-cd "$TEMP_DIR"
+# User directory
+INSTALL_DIR="$HOME/DMG-IMG-Burner"
+
+# Remove existing directory if it exists
+if [ -d "$INSTALL_DIR" ]; then
+    echo -e "${YELLOW}Removendo instalação anterior...${NC}"
+    rm -rf "$INSTALL_DIR"
+fi
 
 echo -e "${YELLOW}[1/4]${NC} Baixando DMG-IMG-Burner do GitHub..."
-git clone https://github.com/maxpicelli/DMG-IMG-Burner.git
-cd DMG-IMG-Burner
+git clone https://github.com/maxpicelli/DMG-IMG-Burner.git "$INSTALL_DIR"
+cd "$INSTALL_DIR"
 
 echo -e "${YELLOW}[2/4]${NC} Preparando instalação..."
 chmod +x make-app.sh
@@ -83,14 +88,14 @@ fi
 echo -e "${GREEN}✓ Aplicativo criado com sucesso!${NC}"
 
 echo -e "${YELLOW}[4/4]${NC} Movendo para o Desktop..."
-INSTALL_DIR="$HOME/Desktop"
-if [ -d "$INSTALL_DIR/DMG Burner.app" ]; then
-    rm -rf "$INSTALL_DIR/DMG Burner.app"
+DESKTOP_DIR="$HOME/Desktop"
+if [ -d "$DESKTOP_DIR/DMG Burner.app" ]; then
+    rm -rf "$DESKTOP_DIR/DMG Burner.app"
 fi
-mv "DMG Burner.app" "$INSTALL_DIR/"
+mv "DMG Burner.app" "$DESKTOP_DIR/"
 
 # Verificar se o app foi movido
-if [ ! -d "$INSTALL_DIR/DMG Burner.app" ]; then
+if [ ! -d "$DESKTOP_DIR/DMG Burner.app" ]; then
     echo -e "${RED}❌ Erro: Falha ao mover aplicativo para o Desktop!${NC}"
     exit 1
 fi
@@ -100,7 +105,8 @@ echo -e "${GREEN}╔════════════════════
 echo -e "${GREEN}║              ✓ INSTALAÇÃO CONCLUÍDA COM SUCESSO!              ║${NC}"
 echo -e "${GREEN}╚════════════════════════════════════════════════════════════════╝${NC}"
 echo ""
-echo -e "${BLUE}📍 Localização:${NC} ${INSTALL_DIR}/DMG Burner.app"
+echo -e "${BLUE}📍 Aplicativo criado em:${NC} ${DESKTOP_DIR}/DMG Burner.app"
+echo -e "${BLUE}📁 Código fonte em:${NC} ${INSTALL_DIR}"
 echo ""
 echo -e "${YELLOW}Para usar:${NC}"
 echo "  1. Vá para o Desktop"
@@ -110,15 +116,8 @@ echo ""
 echo -e "${YELLOW}Para mover para Applications:${NC}"
 echo "  mv ~/Desktop/DMG\\ Burner.app /Applications/"
 echo ""
-echo -e "${GREEN}✓ Aplicativo criado e pronto para uso!${NC}"
-
-# Show location and keep files
-echo ""
-echo -e "${BLUE}📁 Pasta de trabalho mantida em:${NC} ${TEMP_DIR}"
-echo -e "${BLUE}📁 Repositório clonado em:${NC} ${TEMP_DIR}/DMG-IMG-Burner"
-echo ""
-echo -e "${YELLOW}Para limpar manualmente depois:${NC}"
-echo "  rm -rf ${TEMP_DIR}"
+echo -e "${YELLOW}Para limpar o código fonte:${NC}"
+echo "  rm -rf ${INSTALL_DIR}"
 echo ""
 echo -e "${GREEN}✓ Instalação finalizada!${NC}"
 
